@@ -36,11 +36,13 @@
       });
       this.registry.registerItem('pickaxeWood', {
         itemTexture: '../items/wood_pickaxe',
-        speed: 2.0
+        speed: 2.0,
+        maxDamage: 10
       });
       this.registry.registerItem('pickaxeStone', {
         itemTexture: '../items/stone_pickaxe',
-        speed: 10.0
+        speed: 10.0,
+        maxDamage: 100
       });
       this.registry.registerItem('stick', {
         itemTexture: '../items/stick'
@@ -50,8 +52,12 @@
         recipes.thesaurus.registerName('wood.plank', 'plankOak');
         recipes.register(new AmorphousRecipe(['wood.log'], new ItemPile('plankOak', 2)));
         recipes.register(new AmorphousRecipe(['wood.plank', 'wood.plank'], new ItemPile('stick', 4)));
-        recipes.register(new PositionalRecipe([['wood.plank', 'wood.plank', 'wood.plank'], [void 0, 'stick', void 0], [void 0, 'stick', void 0]], new ItemPile('pickaxeWood', 1)));
-        return recipes.register(new PositionalRecipe([['cobblestone', 'cobblestone', 'cobblestone'], [void 0, 'stick', void 0], [void 0, 'stick', void 0]], new ItemPile('pickaxeStone', 1)));
+        recipes.register(new PositionalRecipe([['wood.plank', 'wood.plank', 'wood.plank'], [void 0, 'stick', void 0], [void 0, 'stick', void 0]], new ItemPile('pickaxeWood', 1, {
+          damage: 0
+        })));
+        return recipes.register(new PositionalRecipe([['cobblestone', 'cobblestone', 'cobblestone'], [void 0, 'stick', void 0], [void 0, 'stick', void 0]], new ItemPile('pickaxeStone', 1, {
+          damage: 0
+        })));
       }
     };
 

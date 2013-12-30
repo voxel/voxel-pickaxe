@@ -16,8 +16,8 @@ class ToolsPlugin
   enable: () ->
     @registry.registerBlock 'plankOak', {texture: 'planks_oak'}
 
-    @registry.registerItem 'pickaxeWood', {itemTexture: '../items/wood_pickaxe', speed: 2.0} # TODO: fix path
-    @registry.registerItem 'pickaxeStone', {itemTexture: '../items/stone_pickaxe', speed: 10.0}
+    @registry.registerItem 'pickaxeWood', {itemTexture: '../items/wood_pickaxe', speed: 2.0, maxDamage:10} # TODO: fix path
+    @registry.registerItem 'pickaxeStone', {itemTexture: '../items/stone_pickaxe', speed: 10.0, maxDamage:100}
     @registry.registerItem 'stick', {itemTexture: '../items/stick'}
 
     # recipes
@@ -31,12 +31,12 @@ class ToolsPlugin
       recipes.register new PositionalRecipe([
         ['wood.plank', 'wood.plank', 'wood.plank'],
         [undefined, 'stick', undefined],
-        [undefined, 'stick', undefined]], new ItemPile('pickaxeWood', 1))
+        [undefined, 'stick', undefined]], new ItemPile('pickaxeWood', 1, {damage:0}))
 
       recipes.register new PositionalRecipe([
         ['cobblestone', 'cobblestone', 'cobblestone'],
         [undefined, 'stick', undefined],
-        [undefined, 'stick', undefined]], new ItemPile('pickaxeStone', 1))
+        [undefined, 'stick', undefined]], new ItemPile('pickaxeStone', 1, {damage:0}))
 
   disable: () ->
     # TODO
