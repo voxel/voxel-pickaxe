@@ -19,10 +19,10 @@ class ToolsPlugin
     #game.plugins?.get('voxel-carry').inventory.give new ItemPile('plankOak', 10)
 
   enable: () ->
-    @registry.registerBlock 'plankOak', {texture: 'planks_oak'}
+    @registry.registerBlock 'plankOak', {displayName: 'Oak Planks', texture: 'planks_oak'}
 
-    @registry.registerItem 'pickaxeWood', {itemTexture: '../items/wood_pickaxe', speed: 2.0, maxDamage:10} # TODO: fix path
-    @registry.registerItem 'pickaxeStone', {itemTexture: '../items/stone_pickaxe', speed: 10.0, maxDamage:100}
+    @registry.registerItem 'pickaxeWood', {displayName: 'Wooden Pickaxe', itemTexture: '../items/wood_pickaxe', speed: 2.0, maxDamage:10} # TODO: fix path
+    @registry.registerItem 'pickaxeStone', {displayName: 'Stone Pickaxe', itemTexture: '../items/stone_pickaxe', speed: 10.0, maxDamage:100}
     @registry.registerItem 'stick', {itemTexture: '../items/stick'}
 
     # recipes

@@ -34,14 +34,17 @@
     ToolsPlugin.prototype.enable = function() {
       var recipes, _ref1;
       this.registry.registerBlock('plankOak', {
+        displayName: 'Oak Planks',
         texture: 'planks_oak'
       });
       this.registry.registerItem('pickaxeWood', {
+        displayName: 'Wooden Pickaxe',
         itemTexture: '../items/wood_pickaxe',
         speed: 2.0,
         maxDamage: 10
       });
       this.registry.registerItem('pickaxeStone', {
+        displayName: 'Stone Pickaxe',
         itemTexture: '../items/stone_pickaxe',
         speed: 10.0,
         maxDamage: 100
