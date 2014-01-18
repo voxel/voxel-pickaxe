@@ -39,18 +39,18 @@
       });
       this.registry.registerItem('pickaxeWood', {
         displayName: 'Wooden Pickaxe',
-        itemTexture: '../items/wood_pickaxe',
+        itemTexture: 'items/wood_pickaxe',
         speed: 2.0,
         maxDamage: 10
       });
       this.registry.registerItem('pickaxeStone', {
         displayName: 'Stone Pickaxe',
-        itemTexture: '../items/stone_pickaxe',
+        itemTexture: 'items/stone_pickaxe',
         speed: 10.0,
         maxDamage: 100
       });
       this.registry.registerItem('stick', {
-        itemTexture: '../items/stick'
+        itemTexture: 'items/stick'
       });
       recipes = (_ref1 = this.game.plugins) != null ? _ref1.get('craftingrecipes') : void 0;
       if (recipes != null) {

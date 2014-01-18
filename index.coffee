@@ -21,9 +21,9 @@ class ToolsPlugin
   enable: () ->
     @registry.registerBlock 'plankOak', {displayName: 'Oak Planks', texture: 'planks_oak'}
 
-    @registry.registerItem 'pickaxeWood', {displayName: 'Wooden Pickaxe', itemTexture: '../items/wood_pickaxe', speed: 2.0, maxDamage:10} # TODO: fix path
-    @registry.registerItem 'pickaxeStone', {displayName: 'Stone Pickaxe', itemTexture: '../items/stone_pickaxe', speed: 10.0, maxDamage:100}
-    @registry.registerItem 'stick', {itemTexture: '../items/stick'}
+    @registry.registerItem 'pickaxeWood', {displayName: 'Wooden Pickaxe', itemTexture: 'items/wood_pickaxe', speed: 2.0, maxDamage:10}
+    @registry.registerItem 'pickaxeStone', {displayName: 'Stone Pickaxe', itemTexture: 'items/stone_pickaxe', speed: 10.0, maxDamage:100}
+    @registry.registerItem 'stick', {itemTexture: 'items/stick'}
 
     # recipes
     recipes = @game.plugins?.get('craftingrecipes')
