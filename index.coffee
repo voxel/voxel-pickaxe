@@ -17,13 +17,18 @@ class ToolsPlugin
     #game.plugins?.get('voxel-carry').inventory.give new ItemPile('pickaxeWood', 1, {damage:5})
     #game.plugins?.get('voxel-carry').inventory.give new ItemPile('pickaxeStone', 1, {damage:10})
     #game.plugins?.get('voxel-carry').inventory.give new ItemPile('plankOak', 10)
+    #game.plugins?.get('voxel-carry').inventory.give new ItemPile('shovelWood', 1)
+    #game.plugins?.get('voxel-carry').inventory.give new ItemPile('shovelStone', 1)
 
   enable: () ->
     @registry.registerBlock 'plankOak', {displayName: 'Oak Planks', texture: 'planks_oak'}
 
+    @registry.registerItem 'stick', {itemTexture: 'items/stick'}
+
     @registry.registerItem 'pickaxeWood', {displayName: 'Wooden Pickaxe', itemTexture: 'items/wood_pickaxe', speed: 2.0, maxDamage:10}
     @registry.registerItem 'pickaxeStone', {displayName: 'Stone Pickaxe', itemTexture: 'items/stone_pickaxe', speed: 10.0, maxDamage:100}
-    @registry.registerItem 'stick', {itemTexture: 'items/stick'}
+    @registry.registerItem 'shovelWood', {displayName: 'Wooden Shovel', itemTexture: 'items/wood_shovel', speed: 2.0, maxDamage:5} # TODO: effectiveness 'classes'
+    @registry.registerItem 'shovelStone', {displayName: 'Stone Shovel', itemTexture: 'items/stone_shovel', speed: 3.0, maxDamage:50}
 
     # recipes
     recipes = @game.plugins?.get('craftingrecipes')

@@ -37,6 +37,9 @@
         displayName: 'Oak Planks',
         texture: 'planks_oak'
       });
+      this.registry.registerItem('stick', {
+        itemTexture: 'items/stick'
+      });
       this.registry.registerItem('pickaxeWood', {
         displayName: 'Wooden Pickaxe',
         itemTexture: 'items/wood_pickaxe',
@@ -49,8 +52,17 @@
         speed: 10.0,
         maxDamage: 100
       });
-      this.registry.registerItem('stick', {
-        itemTexture: 'items/stick'
+      this.registry.registerItem('shovelWood', {
+        displayName: 'Wooden Shovel',
+        itemTexture: 'items/wood_shovel',
+        speed: 2.0,
+        maxDamage: 5
+      });
+      this.registry.registerItem('shovelStone', {
+        displayName: 'Stone Shovel',
+        itemTexture: 'items/stone_shovel',
+        speed: 3.0,
+        maxDamage: 50
       });
       recipes = (_ref1 = this.game.plugins) != null ? _ref1.get('craftingrecipes') : void 0;
       if (recipes != null) {
