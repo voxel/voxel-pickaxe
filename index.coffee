@@ -5,7 +5,7 @@ module.exports = (game, opts) ->
   return new ToolsPlugin(game, opts)
 
 module.exports.pluginInfo =
-  loadAfter: ['craftingrecipes', 'voxel-registry']
+  loadAfter: ['voxel-recipes', 'voxel-registry']
 
 class ToolsPlugin
   constructor: (@game, opts) ->
@@ -31,7 +31,7 @@ class ToolsPlugin
     @registry.registerItem 'shovelStone', {displayName: 'Stone Shovel', itemTexture: 'items/stone_shovel', speed: 3.0, maxDamage:50}
 
     # recipes
-    recipes = @game.plugins?.get('craftingrecipes')
+    recipes = @game.plugins?.get('voxel-recipes')
     if recipes?
       recipes.thesaurus.registerName 'wood.plank', 'plankOak'
 
