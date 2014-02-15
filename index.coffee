@@ -9,7 +9,7 @@ module.exports.pluginInfo =
 
 class ToolsPlugin
   constructor: (@game, opts) ->
-    @registry = game.plugins?.get('voxel-registry') ? throw 'voxel-pickaxe requires "voxel-registry" plugin'
+    @registry = game.plugins?.get('voxel-registry') ? throw new Error('voxel-pickaxe requires "voxel-registry" plugin')
 
     # TODO: require/warning if voxel-mine missing? without, 'speed' property won't have any effect
     @enable()

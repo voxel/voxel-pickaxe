@@ -25,7 +25,7 @@
         if ((_ref1 = (_ref2 = game.plugins) != null ? _ref2.get('voxel-registry') : void 0) != null) {
           return _ref1;
         } else {
-          throw 'voxel-pickaxe requires "voxel-registry" plugin';
+          throw new Error('voxel-pickaxe requires "voxel-registry" plugin');
         }
       })();
       this.enable();
