@@ -58,17 +58,23 @@
         speed: 15.0,
         maxDamage: 500
       });
-      this.registry.registerItem('shovelWood', {
-        displayName: 'Wooden Shovel',
+      this.registry.registerItem('spadeWood', {
+        displayName: 'Wooden Spade',
         itemTexture: 'items/wood_shovel',
         speed: 2.0,
         maxDamage: 5
       });
-      this.registry.registerItem('shovelStone', {
-        displayName: 'Stone Shovel',
+      this.registry.registerItem('spadeStone', {
+        displayName: 'Stone Spade',
         itemTexture: 'items/stone_shovel',
         speed: 3.0,
         maxDamage: 50
+      });
+      this.registry.registerItem('spadeIron', {
+        displayName: 'Iron Spade',
+        itemTexture: 'items/iron_shovel',
+        speed: 4.0,
+        maxDamage: 500
       });
       recipes = (_ref1 = this.game.plugins) != null ? _ref1.get('voxel-recipes') : void 0;
       if (recipes != null) {
@@ -80,15 +86,27 @@
         recipes.register(this.pickaxeRecipe('ingotIron', 'pickaxeIron'));
         recipes.register(new RepairRecipe('pickaxeWood', 'plankOak', 4));
         recipes.register(new RepairRecipe('pickaxeStone', 'cobblestone', 20));
-        return recipes.register(new RepairRecipe('pickaxeIron', 'ingotIron', 200));
+        recipes.register(new RepairRecipe('pickaxeIron', 'ingotIron', 200));
+        recipes.register(this.spadeRecipe('wood.plank', 'spadeWood'));
+        recipes.register(this.spadeRecipe('cobblestone', 'spadeStone'));
+        return recipes.register(this.spadeRecipe('ingotIron', 'spadeIron'));
       }
     };
 
-    ToolsPlugin.prototype.pickaxeRecipe = function(headMaterial, itemMaterial, handleMaterial) {
+    ToolsPlugin.prototype.pickaxeRecipe = function(headMaterial, toolMaterial, handleMaterial) {
       if (handleMaterial == null) {
         handleMaterial = 'stick';
       }
-      return new PositionalRecipe([[headMaterial, headMaterial, headMaterial], [void 0, handleMaterial, void 0], [void 0, handleMaterial, void 0]], new ItemPile(itemMaterial, 1, {
+      return new PositionalRecipe([[headMaterial, headMaterial, headMaterial], [void 0, handleMaterial, void 0], [void 0, handleMaterial, void 0]], new ItemPile(toolMaterial, 1, {
+        damage: 0
+      }));
+    };
+
+    ToolsPlugin.prototype.spadeRecipe = function(headMaterial, toolMaterial, handleMaterial) {
+      if (handleMaterial == null) {
+        handleMaterial = 'stick';
+      }
+      return new PositionalRecipe([[void 0, headMaterial, void 0], [void 0, handleMaterial, void 0], [void 0, handleMaterial, void 0]], new ItemPile(toolMaterial, 1, {
         damage: 0
       }));
     };

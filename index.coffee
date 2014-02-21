@@ -22,8 +22,9 @@ class ToolsPlugin
     @registry.registerItem 'pickaxeWood', {displayName: 'Wooden Pickaxe', itemTexture: 'items/wood_pickaxe', speed: 2.0, maxDamage:10}
     @registry.registerItem 'pickaxeStone', {displayName: 'Stone Pickaxe', itemTexture: 'items/stone_pickaxe', speed: 10.0, maxDamage:100}
     @registry.registerItem 'pickaxeIron', {displayName: 'Iron Pickaxe', itemTexture: 'items/iron_pickaxe', speed: 15.0, maxDamage:500}
-    @registry.registerItem 'shovelWood', {displayName: 'Wooden Shovel', itemTexture: 'items/wood_shovel', speed: 2.0, maxDamage:5} # TODO: effectiveness 'classes'
-    @registry.registerItem 'shovelStone', {displayName: 'Stone Shovel', itemTexture: 'items/stone_shovel', speed: 3.0, maxDamage:50}
+    @registry.registerItem 'spadeWood', {displayName: 'Wooden Spade', itemTexture: 'items/wood_shovel', speed: 2.0, maxDamage:5} # TODO: effectiveness 'classes'
+    @registry.registerItem 'spadeStone', {displayName: 'Stone Spade', itemTexture: 'items/stone_shovel', speed: 3.0, maxDamage:50}
+    @registry.registerItem 'spadeIron', {displayName: 'Iron Spade', itemTexture: 'items/iron_shovel', speed: 4.0, maxDamage:500}
 
     # recipes
     recipes = @game.plugins?.get('voxel-recipes')
@@ -41,12 +42,29 @@ class ToolsPlugin
       recipes.register new RepairRecipe('pickaxeStone', 'cobblestone', 20)
       recipes.register new RepairRecipe('pickaxeIron', 'ingotIron', 200)
 
-  pickaxeRecipe: (headMaterial, itemMaterial, handleMaterial='stick') ->
+
+      recipes.register @spadeRecipe('wood.plank', 'spadeWood')
+      recipes.register @spadeRecipe('cobblestone', 'spadeStone')
+      recipes.register @spadeRecipe('ingotIron', 'spadeIron')
+
+
+  pickaxeRecipe: (headMaterial, toolMaterial, handleMaterial='stick') ->
     return new PositionalRecipe([
       [headMaterial, headMaterial, headMaterial],
       [undefined, handleMaterial, undefined],
-      [undefined, handleMaterial, undefined]], new ItemPile(itemMaterial, 1, {damage:0}))
+      [undefined, handleMaterial, undefined]], new ItemPile(toolMaterial, 1, {damage:0}))
 
+  spadeRecipe: (headMaterial, toolMaterial, handleMaterial='stick') ->
+    return new PositionalRecipe([
+    # TODO: use 1x3 not 3x3, so can position in any column - but craftingrecipes only lets you place in 1st
+    #  https://github.com/deathcap/craftingrecipes/issues/2
+    #  [headMaterial],
+    #  [handleMaterial],
+    #  [handleMaterial]],
+      [undefined, headMaterial, undefined],
+      [undefined, handleMaterial, undefined],
+      [undefined, handleMaterial, undefined]],
+      new ItemPile(toolMaterial, 1, {damage:0}))
 
 
   disable: () ->
