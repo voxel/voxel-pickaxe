@@ -52,6 +52,12 @@
         speed: 10.0,
         maxDamage: 100
       });
+      this.registry.registerItem('pickaxeIron', {
+        displayName: 'Iron Pickaxe',
+        itemTexture: 'items/iron_pickaxe',
+        speed: 15.0,
+        maxDamage: 500
+      });
       this.registry.registerItem('shovelWood', {
         displayName: 'Wooden Shovel',
         itemTexture: 'items/wood_shovel',
@@ -71,8 +77,10 @@
         recipes.register(new AmorphousRecipe(['wood.plank', 'wood.plank'], new ItemPile('stick', 4)));
         recipes.register(this.pickaxeRecipe('wood.plank', 'pickaxeWood'));
         recipes.register(this.pickaxeRecipe('cobblestone', 'pickaxeStone'));
+        recipes.register(this.pickaxeRecipe('ingotIron', 'pickaxeIron'));
         recipes.register(new RepairRecipe('pickaxeWood', 'plankOak', 4));
-        return recipes.register(new RepairRecipe('pickaxeStone', 'cobblestone', 20));
+        recipes.register(new RepairRecipe('pickaxeStone', 'cobblestone', 20));
+        return recipes.register(new RepairRecipe('pickaxeIron', 'ingotIron', 200));
       }
     };
 

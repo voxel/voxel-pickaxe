@@ -21,6 +21,7 @@ class ToolsPlugin
 
     @registry.registerItem 'pickaxeWood', {displayName: 'Wooden Pickaxe', itemTexture: 'items/wood_pickaxe', speed: 2.0, maxDamage:10}
     @registry.registerItem 'pickaxeStone', {displayName: 'Stone Pickaxe', itemTexture: 'items/stone_pickaxe', speed: 10.0, maxDamage:100}
+    @registry.registerItem 'pickaxeIron', {displayName: 'Iron Pickaxe', itemTexture: 'items/iron_pickaxe', speed: 15.0, maxDamage:500}
     @registry.registerItem 'shovelWood', {displayName: 'Wooden Shovel', itemTexture: 'items/wood_shovel', speed: 2.0, maxDamage:5} # TODO: effectiveness 'classes'
     @registry.registerItem 'shovelStone', {displayName: 'Stone Shovel', itemTexture: 'items/stone_shovel', speed: 3.0, maxDamage:50}
 
@@ -34,9 +35,11 @@ class ToolsPlugin
 
       recipes.register @pickaxeRecipe('wood.plank', 'pickaxeWood')
       recipes.register @pickaxeRecipe('cobblestone', 'pickaxeStone')
+      recipes.register @pickaxeRecipe('ingotIron', 'pickaxeIron')
 
       recipes.register new RepairRecipe('pickaxeWood', 'plankOak', 4)
       recipes.register new RepairRecipe('pickaxeStone', 'cobblestone', 20)
+      recipes.register new RepairRecipe('pickaxeIron', 'ingotIron', 200)
 
   pickaxeRecipe: (headMaterial, itemMaterial, handleMaterial='stick') ->
     return new PositionalRecipe([
