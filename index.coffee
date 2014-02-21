@@ -14,12 +14,6 @@ class ToolsPlugin
     # TODO: require/warning if voxel-mine missing? without, 'speed' property won't have any effect
     @enable()
 
-    #game.plugins?.get('voxel-carry').inventory.give new ItemPile('pickaxeWood', 1, {damage:5})
-    #game.plugins?.get('voxel-carry').inventory.give new ItemPile('pickaxeStone', 1, {damage:10})
-    #game.plugins?.get('voxel-carry').inventory.give new ItemPile('plankOak', 10)
-    #game.plugins?.get('voxel-carry').inventory.give new ItemPile('shovelWood', 1)
-    #game.plugins?.get('voxel-carry').inventory.give new ItemPile('shovelStone', 1)
-
   enable: () ->
     @registry.registerBlock 'plankOak', {displayName: 'Oak Planks', texture: 'planks_oak'}
 
@@ -38,19 +32,19 @@ class ToolsPlugin
       recipes.register new AmorphousRecipe(['wood.log'], new ItemPile('plankOak', 2))
       recipes.register new AmorphousRecipe(['wood.plank', 'wood.plank'], new ItemPile('stick', 4))
 
-      recipes.register new PositionalRecipe([
-        ['wood.plank', 'wood.plank', 'wood.plank'],
-        [undefined, 'stick', undefined],
-        [undefined, 'stick', undefined]], new ItemPile('pickaxeWood', 1, {damage:0}))
-
-      recipes.register new PositionalRecipe([
-        ['cobblestone', 'cobblestone', 'cobblestone'],
-        [undefined, 'stick', undefined],
-        [undefined, 'stick', undefined]], new ItemPile('pickaxeStone', 1, {damage:0}))
-
+      recipes.register @pickaxeRecipe('wood.plank', 'pickaxeWood')
+      recipes.register @pickaxeRecipe('cobblestone', 'pickaxeStone')
 
       recipes.register new RepairRecipe('pickaxeWood', 'plankOak', 4)
       recipes.register new RepairRecipe('pickaxeStone', 'cobblestone', 20)
+
+  pickaxeRecipe: (headMaterial, itemMaterial, handleMaterial='stick') ->
+    return new PositionalRecipe([
+      [headMaterial, headMaterial, headMaterial],
+      [undefined, handleMaterial, undefined],
+      [undefined, handleMaterial, undefined]], new ItemPile(itemMaterial, 1, {damage:0}))
+
+
 
   disable: () ->
     # TODO

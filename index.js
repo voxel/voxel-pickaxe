@@ -69,15 +69,20 @@
         recipes.thesaurus.registerName('wood.plank', 'plankOak');
         recipes.register(new AmorphousRecipe(['wood.log'], new ItemPile('plankOak', 2)));
         recipes.register(new AmorphousRecipe(['wood.plank', 'wood.plank'], new ItemPile('stick', 4)));
-        recipes.register(new PositionalRecipe([['wood.plank', 'wood.plank', 'wood.plank'], [void 0, 'stick', void 0], [void 0, 'stick', void 0]], new ItemPile('pickaxeWood', 1, {
-          damage: 0
-        })));
-        recipes.register(new PositionalRecipe([['cobblestone', 'cobblestone', 'cobblestone'], [void 0, 'stick', void 0], [void 0, 'stick', void 0]], new ItemPile('pickaxeStone', 1, {
-          damage: 0
-        })));
+        recipes.register(this.pickaxeRecipe('wood.plank', 'pickaxeWood'));
+        recipes.register(this.pickaxeRecipe('cobblestone', 'pickaxeStone'));
         recipes.register(new RepairRecipe('pickaxeWood', 'plankOak', 4));
         return recipes.register(new RepairRecipe('pickaxeStone', 'cobblestone', 20));
       }
+    };
+
+    ToolsPlugin.prototype.pickaxeRecipe = function(headMaterial, itemMaterial, handleMaterial) {
+      if (handleMaterial == null) {
+        handleMaterial = 'stick';
+      }
+      return new PositionalRecipe([[headMaterial, headMaterial, headMaterial], [void 0, handleMaterial, void 0], [void 0, handleMaterial, void 0]], new ItemPile(itemMaterial, 1, {
+        damage: 0
+      }));
     };
 
     ToolsPlugin.prototype.disable = function() {};
