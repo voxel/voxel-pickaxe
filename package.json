@@ -14,12 +14,7 @@
   ],
   "dependencies": {
     "craftingrecipes": "~0.1.0",
-    "itempile": "~0.1.1"
-  },
-  "peerDependencies": {
-    "voxel-plugins": ">=0.1.0",
-    "voxel-registry": ">=0.1.0",
-    "voxel-carry": ">=0.1.0"
+    "itempile": "~0.2.1"
   },
   "license": "MIT"
 }
