@@ -44,37 +44,43 @@
         displayName: 'Wooden Pickaxe',
         itemTexture: 'items/wood_pickaxe',
         speed: 5.0,
-        maxDamage: 8
+        maxDamage: 8,
+        toolClass: 'pickaxe'
       });
       this.registry.registerItem('pickaxeStone', {
         displayName: 'Stone Pickaxe',
         itemTexture: 'items/stone_pickaxe',
         speed: 10.0,
-        maxDamage: 128
+        maxDamage: 128,
+        toolClass: 'pickaxe'
       });
       this.registry.registerItem('pickaxeIron', {
         displayName: 'Iron Pickaxe',
         itemTexture: 'items/iron_pickaxe',
         speed: 25.0,
-        maxDamage: 512
+        maxDamage: 512,
+        toolClass: 'pickaxe'
       });
       this.registry.registerItem('spadeWood', {
         displayName: 'Wooden Spade',
         itemTexture: 'items/wood_shovel',
-        speed: 2.0,
-        maxDamage: 5
+        speed: 5.0,
+        maxDamage: 8,
+        toolClass: 'spade'
       });
       this.registry.registerItem('spadeStone', {
         displayName: 'Stone Spade',
         itemTexture: 'items/stone_shovel',
-        speed: 3.0,
-        maxDamage: 50
+        speed: 10.0,
+        maxDamage: 128,
+        toolClass: 'spade'
       });
       this.registry.registerItem('spadeIron', {
         displayName: 'Iron Spade',
         itemTexture: 'items/iron_shovel',
-        speed: 4.0,
-        maxDamage: 500
+        speed: 25.0,
+        maxDamage: 512,
+        toolClass: 'spade'
       });
       recipes = (_ref1 = this.game.plugins) != null ? _ref1.get('voxel-recipes') : void 0;
       if (recipes != null) {

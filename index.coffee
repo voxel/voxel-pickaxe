@@ -19,12 +19,12 @@ class ToolsPlugin
 
     @registry.registerItem 'stick', {itemTexture: 'items/stick'}
 
-    @registry.registerItem 'pickaxeWood', {displayName: 'Wooden Pickaxe', itemTexture: 'items/wood_pickaxe', speed: 5.0, maxDamage:8}
-    @registry.registerItem 'pickaxeStone', {displayName: 'Stone Pickaxe', itemTexture: 'items/stone_pickaxe', speed: 10.0, maxDamage:128}
-    @registry.registerItem 'pickaxeIron', {displayName: 'Iron Pickaxe', itemTexture: 'items/iron_pickaxe', speed: 25.0, maxDamage:512}
-    @registry.registerItem 'spadeWood', {displayName: 'Wooden Spade', itemTexture: 'items/wood_shovel', speed: 2.0, maxDamage:5} # TODO: effectiveness 'classes'
-    @registry.registerItem 'spadeStone', {displayName: 'Stone Spade', itemTexture: 'items/stone_shovel', speed: 3.0, maxDamage:50}
-    @registry.registerItem 'spadeIron', {displayName: 'Iron Spade', itemTexture: 'items/iron_shovel', speed: 4.0, maxDamage:500}
+    @registry.registerItem 'pickaxeWood', {displayName: 'Wooden Pickaxe', itemTexture: 'items/wood_pickaxe', speed: 5.0, maxDamage:8, toolClass: 'pickaxe'}
+    @registry.registerItem 'pickaxeStone', {displayName: 'Stone Pickaxe', itemTexture: 'items/stone_pickaxe', speed: 10.0, maxDamage:128, toolClass: 'pickaxe'}
+    @registry.registerItem 'pickaxeIron', {displayName: 'Iron Pickaxe', itemTexture: 'items/iron_pickaxe', speed: 25.0, maxDamage:512, toolClass: 'pickaxe'}
+    @registry.registerItem 'spadeWood', {displayName: 'Wooden Spade', itemTexture: 'items/wood_shovel', speed: 5.0, maxDamage:8, toolClass: 'spade'}
+    @registry.registerItem 'spadeStone', {displayName: 'Stone Spade', itemTexture: 'items/stone_shovel', speed: 10.0, maxDamage:128, toolClass: 'spade'}
+    @registry.registerItem 'spadeIron', {displayName: 'Iron Spade', itemTexture: 'items/iron_shovel', speed: 25.0, maxDamage:512, toolClass: 'spade'}
 
     # recipes
     recipes = @game.plugins?.get('voxel-recipes')
