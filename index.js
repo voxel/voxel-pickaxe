@@ -43,20 +43,20 @@
       this.registry.registerItem('pickaxeWood', {
         displayName: 'Wooden Pickaxe',
         itemTexture: 'items/wood_pickaxe',
-        speed: 2.0,
-        maxDamage: 10
+        speed: 5.0,
+        maxDamage: 8
       });
       this.registry.registerItem('pickaxeStone', {
         displayName: 'Stone Pickaxe',
         itemTexture: 'items/stone_pickaxe',
         speed: 10.0,
-        maxDamage: 100
+        maxDamage: 128
       });
       this.registry.registerItem('pickaxeIron', {
         displayName: 'Iron Pickaxe',
         itemTexture: 'items/iron_pickaxe',
-        speed: 15.0,
-        maxDamage: 500
+        speed: 25.0,
+        maxDamage: 512
       });
       this.registry.registerItem('spadeWood', {
         displayName: 'Wooden Spade',
