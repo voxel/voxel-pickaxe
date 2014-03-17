@@ -22,10 +22,16 @@ class ToolsPlugin
     @registry.registerItem 'pickaxeWood', {displayName: 'Wooden Pickaxe', itemTexture: 'items/wood_pickaxe', speed: 5.0, maxDamage:8, toolClass: 'pickaxe'}
     @registry.registerItem 'pickaxeStone', {displayName: 'Stone Pickaxe', itemTexture: 'items/stone_pickaxe', speed: 10.0, maxDamage:128, toolClass: 'pickaxe'}
     @registry.registerItem 'pickaxeIron', {displayName: 'Iron Pickaxe', itemTexture: 'items/iron_pickaxe', speed: 25.0, maxDamage:512, toolClass: 'pickaxe'}
+
     @registry.registerItem 'spadeWood', {displayName: 'Wooden Spade', itemTexture: 'items/wood_shovel', speed: 5.0, maxDamage:8, toolClass: 'spade'}
     @registry.registerItem 'spadeStone', {displayName: 'Stone Spade', itemTexture: 'items/stone_shovel', speed: 10.0, maxDamage:128, toolClass: 'spade'}
     @registry.registerItem 'spadeIron', {displayName: 'Iron Spade', itemTexture: 'items/iron_shovel', speed: 25.0, maxDamage:512, toolClass: 'spade'}
 
+    @registry.registerItem 'axeWood', {displayName: 'Wooden Axe', itemTexture: 'items/wood_axe', speed: 5.0, maxDamage:8, toolClass: 'axe'}
+    @registry.registerItem 'axeStone', {displayName: 'Stone Axe', itemTexture: 'items/stone_axe', speed: 10.0, maxDamage:128, toolClass: 'axe'}
+    @registry.registerItem 'axeIron', {displayName: 'Iron Axe', itemTexture: 'items/iron_axe', speed: 25.0, maxDamage:512, toolClass: 'axe'}
+
+ 
     # recipes
     recipes = @game.plugins?.get('voxel-recipes')
     if recipes?
@@ -47,6 +53,11 @@ class ToolsPlugin
       recipes.register @spadeRecipe('cobblestone', 'spadeStone')
       recipes.register @spadeRecipe('ingotIron', 'spadeIron')
 
+      recipes.register @axeRecipe('wood.plank', 'axeWood')
+      recipes.register @axeRecipe('cobblestone', 'axeStone')
+      recipes.register @axeRecipe('ingotIron', 'axeIron')
+
+
 
   pickaxeRecipe: (headMaterial, toolMaterial, handleMaterial='stick') ->
     return new PositionalRecipe([
@@ -65,6 +76,13 @@ class ToolsPlugin
       [undefined, handleMaterial, undefined],
       [undefined, handleMaterial, undefined]],
       new ItemPile(toolMaterial, 1, {damage:0}))
+
+  axeRecipe: (headMaterial, toolMaterial, handleMaterial='stick') ->
+    # TODO: support mirrored recipe
+    return new PositionalRecipe([
+      [undefined, headMaterial, headMaterial],
+      [undefined, handleMaterial, headMaterial],
+      [undefined, handleMaterial, undefined]], new ItemPile(toolMaterial, 1, {damage:0}))
 
 
   disable: () ->

@@ -82,6 +82,27 @@
         maxDamage: 512,
         toolClass: 'spade'
       });
+      this.registry.registerItem('axeWood', {
+        displayName: 'Wooden Axe',
+        itemTexture: 'items/wood_axe',
+        speed: 5.0,
+        maxDamage: 8,
+        toolClass: 'axe'
+      });
+      this.registry.registerItem('axeStone', {
+        displayName: 'Stone Axe',
+        itemTexture: 'items/stone_axe',
+        speed: 10.0,
+        maxDamage: 128,
+        toolClass: 'axe'
+      });
+      this.registry.registerItem('axeIron', {
+        displayName: 'Iron Axe',
+        itemTexture: 'items/iron_axe',
+        speed: 25.0,
+        maxDamage: 512,
+        toolClass: 'axe'
+      });
       recipes = (_ref1 = this.game.plugins) != null ? _ref1.get('voxel-recipes') : void 0;
       if (recipes != null) {
         recipes.thesaurus.registerName('wood.plank', 'plankOak');
@@ -95,7 +116,10 @@
         recipes.register(new RepairRecipe('pickaxeIron', 'ingotIron', 200));
         recipes.register(this.spadeRecipe('wood.plank', 'spadeWood'));
         recipes.register(this.spadeRecipe('cobblestone', 'spadeStone'));
-        return recipes.register(this.spadeRecipe('ingotIron', 'spadeIron'));
+        recipes.register(this.spadeRecipe('ingotIron', 'spadeIron'));
+        recipes.register(this.axeRecipe('wood.plank', 'axeWood'));
+        recipes.register(this.axeRecipe('cobblestone', 'axeStone'));
+        return recipes.register(this.axeRecipe('ingotIron', 'axeIron'));
       }
     };
 
@@ -113,6 +137,15 @@
         handleMaterial = 'stick';
       }
       return new PositionalRecipe([[void 0, headMaterial, void 0], [void 0, handleMaterial, void 0], [void 0, handleMaterial, void 0]], new ItemPile(toolMaterial, 1, {
+        damage: 0
+      }));
+    };
+
+    ToolsPlugin.prototype.axeRecipe = function(headMaterial, toolMaterial, handleMaterial) {
+      if (handleMaterial == null) {
+        handleMaterial = 'stick';
+      }
+      return new PositionalRecipe([[void 0, headMaterial, headMaterial], [void 0, handleMaterial, headMaterial], [void 0, handleMaterial, void 0]], new ItemPile(toolMaterial, 1, {
         damage: 0
       }));
     };
