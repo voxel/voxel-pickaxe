@@ -67,22 +67,17 @@ class ToolsPlugin
 
   spadeRecipe: (headMaterial, toolMaterial, handleMaterial='stick') ->
     return new PositionalRecipe([
-    # TODO: use 1x3 not 3x3, so can position in any column - but craftingrecipes only lets you place in 1st
-    #  https://github.com/deathcap/craftingrecipes/issues/2
-    #  [headMaterial],
-    #  [handleMaterial],
-    #  [handleMaterial]],
-      [undefined, headMaterial, undefined],
-      [undefined, handleMaterial, undefined],
-      [undefined, handleMaterial, undefined]],
+      [headMaterial],
+      [handleMaterial],
+      [handleMaterial]],
       new ItemPile(toolMaterial, 1, {damage:0}))
 
   axeRecipe: (headMaterial, toolMaterial, handleMaterial='stick') ->
     # TODO: support mirrored recipe
     return new PositionalRecipe([
-      [undefined, headMaterial, headMaterial],
-      [undefined, handleMaterial, headMaterial],
-      [undefined, handleMaterial, undefined]], new ItemPile(toolMaterial, 1, {damage:0}))
+      [headMaterial, headMaterial],
+      [handleMaterial, headMaterial],
+      [handleMaterial, undefined]], new ItemPile(toolMaterial, 1, {damage:0}))
 
 
   disable: () ->

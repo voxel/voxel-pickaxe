@@ -13,7 +13,7 @@
     "tools"
   ],
   "dependencies": {
-    "craftingrecipes": "~0.2.1",
+    "craftingrecipes": "~0.3.0",
     "itempile": "~0.2.1"
   },
   "license": "MIT"

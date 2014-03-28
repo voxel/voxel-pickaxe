@@ -136,7 +136,7 @@
       if (handleMaterial == null) {
         handleMaterial = 'stick';
       }
-      return new PositionalRecipe([[void 0, headMaterial, void 0], [void 0, handleMaterial, void 0], [void 0, handleMaterial, void 0]], new ItemPile(toolMaterial, 1, {
+      return new PositionalRecipe([[headMaterial], [handleMaterial], [handleMaterial]], new ItemPile(toolMaterial, 1, {
         damage: 0
       }));
     };
@@ -145,7 +145,7 @@
       if (handleMaterial == null) {
         handleMaterial = 'stick';
       }
-      return new PositionalRecipe([[void 0, headMaterial, headMaterial], [void 0, handleMaterial, headMaterial], [void 0, handleMaterial, void 0]], new ItemPile(toolMaterial, 1, {
+      return new PositionalRecipe([[headMaterial, headMaterial], [handleMaterial, headMaterial], [handleMaterial, void 0]], new ItemPile(toolMaterial, 1, {
         damage: 0
       }));
     };
