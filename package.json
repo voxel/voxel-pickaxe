@@ -2,7 +2,7 @@
   "name": "voxel-pickaxe",
   "description": "pickaxe tools to help you mine (voxel.js plugin)",
   "version": "0.2.2",
-  "main": "pickaxe.coffee",
+  "main": "pickaxe.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:deathcap/voxel-pickaxe.git"
