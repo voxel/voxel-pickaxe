@@ -15,7 +15,7 @@
     "tools"
   ],
   "dependencies": {
-    "craftingrecipes": "^1.0.0",
+    "craftingrecipes": "^2.0.0",
     "itempile": "^2.0.0"
   },
   "license": "MIT"
