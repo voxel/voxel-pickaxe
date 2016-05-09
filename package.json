@@ -1,7 +1,7 @@
 {
   "name": "voxel-pickaxe",
   "description": "pickaxe tools to help you mine (voxel.js plugin)",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "main": "pickaxe.js",
   "repository": {
     "type": "git",
