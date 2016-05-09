@@ -105,6 +105,7 @@ class ToolsPlugin {
 
 class RepairRecipe extends Recipe {
   constructor(toolItem, repairingItem, repairAmount) {
+    super();
     this.toolItem = toolItem;
     this.repairingItem = repairingItem;
     this.repairAmount = repairAmount;
