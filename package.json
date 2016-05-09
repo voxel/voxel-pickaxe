@@ -1,8 +1,8 @@
 {
   "name": "voxel-pickaxe",
   "description": "pickaxe tools to help you mine (voxel.js plugin)",
-  "version": "0.2.2",
-  "main": "pickaxe.coffee",
+  "version": "1.0.0",
+  "main": "pickaxe.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:deathcap/voxel-pickaxe.git"
@@ -15,14 +15,8 @@
     "tools"
   ],
   "dependencies": {
-    "coffeeify": "^1.0.0",
-    "craftingrecipes": "^1.0.0",
-    "itempile": "^1.0.1"
-  },
-  "browserify": {
-    "transform": [
-      "coffeeify"
-    ]
+    "craftingrecipes": "^2.0.0",
+    "itempile": "^2.0.0"
   },
   "license": "MIT"
 }
